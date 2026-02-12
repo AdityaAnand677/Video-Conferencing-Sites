@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calling...</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #2196f3, white);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: white;
+      border: 5px solid #2196f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #2196f3;
+      margin-bottom: 50px;
+      box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+    }
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+    button {
+      padding: 15px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      color: white;
+      transition: 0.3s;
+    }
+    .start { background: green; }
+    .end { background: red; }
+    button:hover { transform: scale(1.1); }
+  </style>
+</head>
+<body>
+  <div class="circle" id="numberDisplay">
+    Calling...
+  </div>
+
+  <div class="buttons">
+    <button class="start" onclick="startCall()">Start Call</button>
+    <button class="end" onclick="endCall()">End Call</button>
+  </div>
+
+  <script>
+    // Random number generator
+    const randomNum = Math.floor(1000000000 + Math.random() * 9000000000);
+    document.getElementById("numberDisplay").innerText = randomNum;
+
+    function startCall() {
+      document.getElementById("numberDisplay").innerText = "📞 In Call with " + randomNum;
+    }
+
+    function endCall() {
+      document.getElementById("numberDisplay").innerText = "❌ Call Ended";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen Sharing</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #4caf50, white);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    video {
+      border: 3px solid #4caf50;
+      width: 80%;
+      height: 60%;
+      background: black;
+      margin-bottom: 20px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+      color: white;
+    }
+    .start { background: #4caf50; }
+    .stop { background: red; }
+    .back { background: gray; }
+    button:hover { transform: scale(1.05); }
+  </style>
+</head>
+<body>
+  <h1>Screen Sharing Demo</h1>
+  <video id="screenVideo" autoplay playsinline></video>
+  <div>
+    <button class="start" onclick="startShare()">Start Screen Share</button>
+    <button class="stop" onclick="stopShare()">Stop</button>
+    <button class="back" onclick="location.href='main.html'">⬅ Back to Main</button>
+  </div>
+
+  <script>
+    let screenStream;
+
+    async function startShare() {
+      try {
+        screenStream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+        document.getElementById("screenVideo").srcObject = screenStream;
+      } catch (err) {
+        alert("Screen share failed: " + err.message);
+      }
+    }
+
+    function stopShare() {
+      if (screenStream) {
+        screenStream.getTracks().forEach(track => track.stop());
+        document.getElementById("screenVideo").srcObject = null;
+      }
+    }
+  </script>
+</body>
+</html>

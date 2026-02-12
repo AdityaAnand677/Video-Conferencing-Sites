@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Sharing</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff9800, white);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .file-list {
+      border: 2px solid #ff9800;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+      width: 50%;
+    }
+    .file-list h2 {
+      margin-bottom: 10px;
+      color: #ff9800;
+    }
+    .file-item {
+      margin: 10px 0;
+      font-size: 18px;
+      color: #333;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      background: #ff9800;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>File Sharing Demo</h1>
+  <div class="file-list">
+    <h2>Available Files</h2>
+    <div class="file-item">📄 Report1.pdf</div>
+    <div class="file-item">📷 Image1.png</div>
+    <div class="file-item">🎵 Song.mp3</div>
+    <div class="file-item">🎬 Video.mp4</div>
+  </div>
+  <button onclick="location.href='main.html'">⬅ Back to Main</button>
+</body>
+</html>
